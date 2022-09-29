@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+
+    <div class="range">
+        <div class="slideValue">
+            <span>50</span>
+        </div>
+        <div class="slider">
+            <div class="value left">0</div>
+            <input type="range" min="0" max="100" value="50">
+            <div class="value right">100</div>
+        </div>
+    </div>
+
+
+    <script>
+        const slider_value = document.querySelector('span');
+        const input_value = document.querySelector('input');
+
+        input_value.oninput = (()=>{
+            let val = input_value.value;
+            slider_value.textContent = val;
+            slider_value.style.left = val + "%";
+            slider_value.classList.add('show');
+        });
+
+        input_value.onblur = (()=>{
+            slider_value.classList.remove('show');
+        })
+    </script>
+    
+</body>
+</html>
